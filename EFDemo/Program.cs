@@ -4,6 +4,7 @@ using System.Configuration;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using EFDemo.EF;
 using EFDemo.NH;
 
 //sing IEquipamentoGenericoPresenter = EFDemo.IEquipamentoPresenter<EFDemo.EquipamentoGenericoViewModel, EFDemo.EquipamentoGenerico> ;
@@ -14,10 +15,20 @@ namespace EFDemo {
     class Program {
         static void Main(string[] args) {
 
-            SaveAndLoadEmployee();
+            //SaveAndLoadEmployeeWithNH();
+
+            SaveAndLoadEmployeeWithEF();
         }
 
-        private static void SaveAndLoadEmployee() {
+        private static void SaveAndLoadEmployeeWithEF() {
+            var cnnString = ConfigurationManager.ConnectionStrings["cnn"].ConnectionString;
+            var d = new EfDemoContext(cnnString);
+            var t = d.EmployeeTypes.ToList();
+            var d1 = new EfDemoContext(cnnString);
+            var t2 = d1.EmployeeTypes.ToList();
+        }
+
+        private static void SaveAndLoadEmployeeWithNH() {
             var employeeId = 0;
             var sessionFactory =
                 SessionFactoryHelper.GetSessionFactory(ConfigurationManager.ConnectionStrings["cnn"].ConnectionString);
