@@ -22,7 +22,7 @@ namespace EFDemo.EF {
         private void MapEmployee(DbModelBuilder modelBuilder) {
             var entityBuilder = modelBuilder.Entity<Employee>();
             entityBuilder.HasKey(Reveal.Member<Employee>("_empoyeeId")).ToTable("Employees");
-
+            
 
             
         //    entityBuilder.Property(Reveal.Member<Employee>("_employeeId")).HasColumnName("EmployeeId");
