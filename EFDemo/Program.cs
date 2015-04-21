@@ -10,67 +10,9 @@ using EFDemo.NH;
 
                                       
 namespace EFDemo {
-   /* using IEquipamentoGenericoView2 = EFDemo.IEquipamentoView<IEquipamentoGenericoPresenter, EFDemo.EquipamentoGenericoViewModel, EFDemo.EquipamentoGenerico>;
-
-    public class EquipamentoViewModel {}
-    public class Equipamento {}
-
-    public class EquipamentoGenericoViewModel :EquipamentoViewModel {}
-
-    public class EquipamentoGenerico : Equipamento {}
-
-    public interface IEquipamentoPresenter<TVm, TE>
-        where TVm : EquipamentoViewModel
-        where TE : Equipamento {
-    }
-
-    //public interface IEquipamentoGenericoPresenter : IEquipamentoPresenter<EquipamentoGenericoViewModel, EquipamentoGenerico> {}
-
-    public interface IEquipamentoView<TP, TVm, TE>
-        where TP : IEquipamentoPresenter<TVm, TE>
-        where TE : Equipamento
-        where TVm : EquipamentoViewModel {
-    }
-
-    public interface IEquipamentoGenericoView :
-        IEquipamentoView<IEquipamentoGenericoPresenter, EquipamentoGenericoViewModel, EquipamentoGenerico> {
-    }
-
-    public abstract class EquipamentoPresenter<TVm, TE, TVe> : IEquipamentoPresenter<TVm, TE>
-        where TVm : EquipamentoViewModel, new()
-        where TE : Equipamento, new()
-        where TVe : IEquipamentoView<IEquipamentoPresenter<TVm, TE>, TVm, TE> {
-    }
-
-    public class EquipamentoGenericoPresenter : EquipamentoPresenter<
-        EquipamentoGenericoViewModel,
-        EquipamentoGenerico,
-        IEquipamentoView<IEquipamentoPresenter<EquipamentoGenericoViewModel, EquipamentoGenerico>, EquipamentoGenericoViewModel,
-                EquipamentoGenerico>>, IEquipamentoGenericoPresenter {
-    }
-
-    public class EquipamentoGenericoPresenterComErro : EquipamentoPresenter<
-        EquipamentoGenericoViewModel,
-        EquipamentoGenerico,
-        IEquipamentoGenericoView2> {
-    }
-    */
-
+   
     class Program {
         static void Main(string[] args) {
-//            var tipoFuncionario = new EmployeeType("Teste", 1);
-
-//            var funcionario = new Employee();
-//            funcionario.ChangeAdress("Funchal");
-//            funcionario.ChangeName("Luis");
-//            funcionario.SetEmployeeType(tipoFuncionario);
-//            funcionario.AddContact(new Contact("123123123", ContactKind.Phone));
-//            funcionario.AddContact(new Contact("123123123", ContactKind.Phone));
-//            Console.WriteLine(funcionario);
-
-           /* using (var context = new FuncionariosDbContext()) {
-                context.TiposFuncionario.Add(tipoFuncionario);
-            }*/
 
             SaveAndLoadEmployee();
         }

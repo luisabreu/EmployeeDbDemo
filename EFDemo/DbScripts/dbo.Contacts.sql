@@ -3,5 +3,5 @@
 	[Id] INT NOT NULL identity(1,1) PRIMARY KEY,
 	Contact varchar(20) not null,
 	ContactKind int not null,
-	EmployeeTypeId int not null foreign key references Employees(EmployeeId)
+	EmployeeId int not null foreign key references Employees(EmployeeId)
 )
