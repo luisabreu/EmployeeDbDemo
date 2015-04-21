@@ -1,7 +1,7 @@
 namespace EFDemo {
     public class EmployeeType {
-        public int EmployeeTypeId { get; }
-        public string Designation { get; }
+        public int EmployeeTypeId { get; set; }
+        public string Designation { get; set; }
 
         public EmployeeType(string designation, int employeeTypeId) {
             Designation = designation;
