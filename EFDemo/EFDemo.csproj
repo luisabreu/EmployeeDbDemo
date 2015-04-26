@@ -74,11 +74,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Contact.cs" />
+    <Compile Include="EF\EmployeeDbContext.cs" />
+    <Compile Include="EF\EmployeeMappings.cs" />
+    <Compile Include="EF\EmployeeRepository.cs" />
+    <Compile Include="EF\EmployeeTypesMappings.cs" />
     <Compile Include="Employee.cs" />
     <Compile Include="NH\EmployeeMappings.cs" />
     <Compile Include="NH\EmployeeRepository.cs" />
     <Compile Include="NH\EmployeeTypeMappings.cs" />
-    <Compile Include="FuncionariosDbContext.cs" />
     <Compile Include="IEmployeeRepository.cs" />
     <Compile Include="NH\SessionFactoryHelper.cs" />
     <Compile Include="Program.cs" />

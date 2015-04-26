@@ -4,6 +4,7 @@ using System.Configuration;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using EFDemo.EF;
 using EFDemo.NH;
 
 //sing IEquipamentoGenericoPresenter = EFDemo.IEquipamentoPresenter<EFDemo.EquipamentoGenericoViewModel, EFDemo.EquipamentoGenerico> ;
@@ -72,10 +73,23 @@ namespace EFDemo {
                 context.TiposFuncionario.Add(tipoFuncionario);
             }*/
 
-            SaveAndLoadEmployee();
+            SaveAndLoadEmployeeWithNH();
+//            SaveAndLoadEmployeeWithEF();
         }
 
-        private static void SaveAndLoadEmployee() {
+        private static void SaveAndLoadEmployeeWithEF() {
+            var dbContext = new EmployeeDbContext(ConfigurationManager.ConnectionStrings["cnn"].ConnectionString);
+            using (var tran = dbContext.Database.BeginTransaction()) {
+                var types = dbContext.Set<EmployeeType>().ToList();
+                foreach (var employeeType in types) {
+                    Console.WriteLine(employeeType.EmployeeTypeId + " - " +employeeType.Designation);
+                }
+                tran.Commit();
+            }
+            
+        }
+
+        private static void SaveAndLoadEmployeeWithNH() {
             var employeeId = 0;
             var sessionFactory =
                 SessionFactoryHelper.GetSessionFactory(ConfigurationManager.ConnectionStrings["cnn"].ConnectionString);

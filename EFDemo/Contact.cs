@@ -3,24 +3,24 @@ using System.Text;
 
 namespace EFDemo {
     public class Contact {
-        private string _contact = "";
-        private ContactKind _contactKind = ContactKind.Phone;
+        private string Value { get; set; } = "";
+        private ContactKind Kind { get; set; } = ContactKind.Phone;
 
         public Contact(string contact, ContactKind contactKind) {
-            _contact = contact;
-            _contactKind = contactKind;
+            Value = contact;
+            Kind = contactKind;
         }
 
         private Contact() {
         }
 
         protected bool Equals(Contact other) {
-            return string.Equals(_contact, other._contact) && _contactKind == other._contactKind;
+            return string.Equals(Value, other.Value) && Kind == other.Kind;
         }
 
         public override string ToString() {
             var str = new StringBuilder();
-            str.AppendFormat("{0} do tipo {1}\n", _contact, _contactKind);
+            str.AppendFormat("{0} do tipo {1}\n", Value, Kind);
             return str.ToString();
         }
 
@@ -33,7 +33,7 @@ namespace EFDemo {
 
         public override int GetHashCode() {
             unchecked {
-                return ((_contact != null ? _contact.GetHashCode() : 0)*397) ^ (int) _contactKind;
+                return ((Value != null ? Value.GetHashCode() : 0)*397) ^ (int) Kind;
             }
         }
 
