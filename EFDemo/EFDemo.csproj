@@ -11,6 +11,10 @@
     <AssemblyName>EFDemo</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+<<<<<<< HEAD
+=======
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+>>>>>>> e96e826d0fb5be89e7f6b512fd6afe010b3a8630
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
@@ -23,7 +27,10 @@
     <MapFileExtensions>true</MapFileExtensions>
     <ApplicationRevision>0</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+<<<<<<< HEAD
     <IsWebBootstrapper>false</IsWebBootstrapper>
+=======
+>>>>>>> e96e826d0fb5be89e7f6b512fd6afe010b3a8630
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
@@ -74,14 +81,22 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Contact.cs" />
+<<<<<<< HEAD
     <Compile Include="EF\EmployeeDbContext.cs" />
     <Compile Include="EF\EmployeeMappings.cs" />
     <Compile Include="EF\EmployeeRepository.cs" />
     <Compile Include="EF\EmployeeTypesMappings.cs" />
+=======
+    <Compile Include="EF\EfDemoContext.cs" />
+>>>>>>> e96e826d0fb5be89e7f6b512fd6afe010b3a8630
     <Compile Include="Employee.cs" />
     <Compile Include="NH\EmployeeMappings.cs" />
     <Compile Include="NH\EmployeeRepository.cs" />
     <Compile Include="NH\EmployeeTypeMappings.cs" />
+<<<<<<< HEAD
+=======
+    <Compile Include="FuncionariosDbContext.cs" />
+>>>>>>> e96e826d0fb5be89e7f6b512fd6afe010b3a8630
     <Compile Include="IEmployeeRepository.cs" />
     <Compile Include="NH\SessionFactoryHelper.cs" />
     <Compile Include="Program.cs" />
@@ -94,6 +109,7 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+<<<<<<< HEAD
     <Content Include="demo.mdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -103,17 +119,43 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+=======
+>>>>>>> e96e826d0fb5be89e7f6b512fd6afe010b3a8630
     <BootstrapperPackage Include=".NETFramework,Version=v4.5">
       <Visible>False</Visible>
       <ProductName>Microsoft .NET Framework 4.5 %28x86 and x64%29</ProductName>
       <Install>true</Install>
     </BootstrapperPackage>
+<<<<<<< HEAD
+=======
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+>>>>>>> e96e826d0fb5be89e7f6b512fd6afe010b3a8630
     <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
       <Visible>False</Visible>
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
+<<<<<<< HEAD
+=======
+  <ItemGroup>
+    <Content Include="DbScripts\dbo.Contacts.sql" />
+    <Content Include="DbScripts\dbo.Employees.sql" />
+    <Content Include="DbScripts\dbo.EmployeeTypes.sql" />
+    <Content Include="demo.mdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="demo_log.ldf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <DependentUpon>demo.mdf</DependentUpon>
+    </Content>
+  </ItemGroup>
+  <ItemGroup />
+>>>>>>> e96e826d0fb5be89e7f6b512fd6afe010b3a8630
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

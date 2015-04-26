@@ -11,6 +11,7 @@ using EFDemo.NH;
 
                                       
 namespace EFDemo {
+<<<<<<< HEAD
    /* using IEquipamentoGenericoView2 = EFDemo.IEquipamentoView<IEquipamentoGenericoPresenter, EFDemo.EquipamentoGenericoViewModel, EFDemo.EquipamentoGenerico>;
 
     public class EquipamentoViewModel {}
@@ -87,6 +88,23 @@ namespace EFDemo {
                 tran.Commit();
             }
             
+=======
+   
+    class Program {
+        static void Main(string[] args) {
+
+            //SaveAndLoadEmployeeWithNH();
+
+            SaveAndLoadEmployeeWithEF();
+        }
+
+        private static void SaveAndLoadEmployeeWithEF() {
+            var cnnString = ConfigurationManager.ConnectionStrings["cnn"].ConnectionString;
+            var d = new EfDemoContext(cnnString);
+            var t = d.EmployeeTypes.ToList();
+            var d1 = new EfDemoContext(cnnString);
+            var t2 = d1.EmployeeTypes.ToList();
+>>>>>>> e96e826d0fb5be89e7f6b512fd6afe010b3a8630
         }
 
         private static void SaveAndLoadEmployeeWithNH() {
