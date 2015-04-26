@@ -11,52 +11,6 @@ using EFDemo.NH;
 
                                       
 namespace EFDemo {
-<<<<<<< HEAD
-   /* using IEquipamentoGenericoView2 = EFDemo.IEquipamentoView<IEquipamentoGenericoPresenter, EFDemo.EquipamentoGenericoViewModel, EFDemo.EquipamentoGenerico>;
-
-    public class EquipamentoViewModel {}
-    public class Equipamento {}
-
-    public class EquipamentoGenericoViewModel :EquipamentoViewModel {}
-
-    public class EquipamentoGenerico : Equipamento {}
-
-    public interface IEquipamentoPresenter<TVm, TE>
-        where TVm : EquipamentoViewModel
-        where TE : Equipamento {
-    }
-
-    //public interface IEquipamentoGenericoPresenter : IEquipamentoPresenter<EquipamentoGenericoViewModel, EquipamentoGenerico> {}
-
-    public interface IEquipamentoView<TP, TVm, TE>
-        where TP : IEquipamentoPresenter<TVm, TE>
-        where TE : Equipamento
-        where TVm : EquipamentoViewModel {
-    }
-
-    public interface IEquipamentoGenericoView :
-        IEquipamentoView<IEquipamentoGenericoPresenter, EquipamentoGenericoViewModel, EquipamentoGenerico> {
-    }
-
-    public abstract class EquipamentoPresenter<TVm, TE, TVe> : IEquipamentoPresenter<TVm, TE>
-        where TVm : EquipamentoViewModel, new()
-        where TE : Equipamento, new()
-        where TVe : IEquipamentoView<IEquipamentoPresenter<TVm, TE>, TVm, TE> {
-    }
-
-    public class EquipamentoGenericoPresenter : EquipamentoPresenter<
-        EquipamentoGenericoViewModel,
-        EquipamentoGenerico,
-        IEquipamentoView<IEquipamentoPresenter<EquipamentoGenericoViewModel, EquipamentoGenerico>, EquipamentoGenericoViewModel,
-                EquipamentoGenerico>>, IEquipamentoGenericoPresenter {
-    }
-
-    public class EquipamentoGenericoPresenterComErro : EquipamentoPresenter<
-        EquipamentoGenericoViewModel,
-        EquipamentoGenerico,
-        IEquipamentoGenericoView2> {
-    }
-    */
 
     class Program {
         static void Main(string[] args) {
@@ -87,24 +41,6 @@ namespace EFDemo {
                 }
                 tran.Commit();
             }
-            
-=======
-   
-    class Program {
-        static void Main(string[] args) {
-
-            //SaveAndLoadEmployeeWithNH();
-
-            SaveAndLoadEmployeeWithEF();
-        }
-
-        private static void SaveAndLoadEmployeeWithEF() {
-            var cnnString = ConfigurationManager.ConnectionStrings["cnn"].ConnectionString;
-            var d = new EfDemoContext(cnnString);
-            var t = d.EmployeeTypes.ToList();
-            var d1 = new EfDemoContext(cnnString);
-            var t2 = d1.EmployeeTypes.ToList();
->>>>>>> e96e826d0fb5be89e7f6b512fd6afe010b3a8630
         }
 
         private static void SaveAndLoadEmployeeWithNH() {
