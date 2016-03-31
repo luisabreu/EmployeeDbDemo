@@ -9,7 +9,10 @@ namespace EFDemo.NH {
 
             Id(Reveal.Member<Employee>("EmployeeId"))
                 .GeneratedBy.Identity();
-            Version(Reveal.Member<Employee>("Version"));
+            Version(Reveal.Member<Employee>("Version"))
+                .CustomSqlType("rowversion")
+                .CustomType<byte[]>()
+                .Generated.Always();
             Map(Reveal.Member<Employee>("Name"));
             Map(Reveal.Member<Employee>("Address"));
             HasMany<Contact>(Reveal.Member<Employee>("Contacts"))

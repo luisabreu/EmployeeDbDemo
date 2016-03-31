@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using EFDemo.EF;
 using EFDemo.NH;
+using Microsoft.Data.Entity;
 
 //sing IEquipamentoGenericoPresenter = EFDemo.IEquipamentoPresenter<EFDemo.EquipamentoGenericoViewModel, EFDemo.EquipamentoGenerico> ;
 
@@ -33,7 +34,7 @@ namespace EFDemo {
         }
 
         private static void SaveAndLoadEmployeeWithEF() {
-            var dbContext = new EmployeeDbContext(ConfigurationManager.ConnectionStrings["cnn"].ConnectionString);
+            var dbContext = new EfDemoContext(ConfigurationManager.ConnectionStrings["cnn"].ConnectionString);
             using (var tran = dbContext.Database.BeginTransaction()) {
                 var types = dbContext.Set<EmployeeType>().ToList();
                 foreach (var employeeType in types) {

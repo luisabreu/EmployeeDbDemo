@@ -1,41 +1,41 @@
-﻿using System;
-using System.Data.Entity;
-using System.Data.Entity.ModelConfiguration.Configuration;
-using System.Linq.Expressions;
-using FluentNHibernate;
-using NHibernate.Criterion;
-using NHibernate.Engine;
+﻿using Microsoft.Data.Entity;
 
 namespace EFDemo.EF {
     public class EfDemoContext : DbContext {
-        public EfDemoContext(string cnnString): base(cnnString){
+        private readonly string _cnnString;
+
+        public EfDemoContext(string cnnString) {
+            _cnnString = cnnString;
         }
 
-        //  public DbSet<Employee> Employees { get; set; }
+        public DbSet<Employee> Employees { get; set; }
         public DbSet<EmployeeType> EmployeeTypes { get; set; }
 
-        protected override void OnModelCreating(DbModelBuilder modelBuilder) {
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder) {
+            optionsBuilder.UseSqlServer(_cnnString);
+        }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder) {
             MapEmployeeType(modelBuilder);
             MapEmployee(modelBuilder);
         }
 
-        private void MapEmployee(DbModelBuilder modelBuilder) {
+        private void MapEmployee(ModelBuilder modelBuilder) {
             var entityBuilder = modelBuilder.Entity<Employee>();
-            entityBuilder.HasKey(Reveal.Member<Employee>("_empoyeeId")).ToTable("Employees");
             
+            entityBuilder.ToTable("Employees");
+            entityBuilder.HasKey(e => e.EmployeeId);
+            entityBuilder.Property(e => e.Version)
+                .ValueGeneratedOnAddOrUpdate()
+                .IsConcurrencyToken();
 
-            
-        //    entityBuilder.Property(Reveal.Member<Employee>("_employeeId")).HasColumnName("EmployeeId");
-
-
+            //    entityBuilder.Property(Reveal.Member<Employee>("_employeeId")).HasColumnName("EmployeeId");
         }
 
-        private void MapEmployeeType(DbModelBuilder modelBuilder) {
-            modelBuilder.Entity<EmployeeType>()
-                .ToTable("EmployeeTypes")
-                .HasKey(et =>et.EmployeeTypeId)
-                .Property(et => et.Designation);
+        private void MapEmployeeType(ModelBuilder modelBuilder) {
+           var employeeTypesBuilder =  modelBuilder.Entity<EmployeeType>();
+            employeeTypesBuilder.ToTable("EmployeeTypes");
+            employeeTypesBuilder.HasKey(et => et.EmployeeTypeId);
         }
-
     }
 }

@@ -10,7 +10,7 @@ namespace EFDemo {
         private string Address { get; set; }
         private string Name { get; set; }
         private EmployeeType EmployeeType { get; set; }
-        private int Version { get; set; }
+        public byte[] Version { get; private set; }
 
         //just for demo purposes...
 
